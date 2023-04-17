@@ -1,11 +1,34 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brooke's INST377 Project</title>
+    <link rel="stylesheet" href="proj.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <h1>FBI Most Wanted</h1>
+      </header>
+      <div class="container">
+        <div class="left_section box">
+          <h3>Most Wanted List</h3>
+          <div class="submit_form">
+            <form
+              action="https://api.fbi.gov/wanted/v1/list"
+              class="box main_form"
+            >
+              <button type="submit" id="data_load">Load Data</button>
+              <!-- <button type="button" class="filter_button">Filter Data</button> -->
+            </form>
+          </div>
+        </div>
+        <div class="right_section box">
+            <h3>Data Visualization</h3>
+          </div>
+      </div>
+    </div>
+    <script src="./proj.js"></script>
+  </body>
 </html>
