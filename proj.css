@@ -149,11 +149,7 @@ Form Styles
     flex-direction: column;
   }
   
-  /*
-    This block is actually dependent on the "container" block having a flex set on it
-    and the "wrapper" block displaying as a flex column with a "vertical height" (vh) of 100.
-    That serves to cram the footer to the bottom of the page.
-  */
+
   
   .footer {
     flex-shrink: 0;
@@ -170,11 +166,7 @@ Form Styles
     text-decoration: underline;
   }
   
-  /*
-    This is an example of a 'pseudoclass'
-    In this instance, it says what to do if a mouse hovers over a link
-    This is pretty desktop-specific, since there's no hover function on touchscreens
-  */
+ ß
   .footer a:hover {
     /* Hue, saturation, luminosity, alpha */
     background-color: hsla(0, 0%, 90%, 0.15);
