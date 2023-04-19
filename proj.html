@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brooke's INST377 Project</title>
     <link rel="stylesheet" href="proj.css" />
-    <script class="chart">
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- <script class="chart">
         window.onload = function () {
         
         var chart = new CanvasJS.Chart("chartContainer", {
@@ -57,10 +60,7 @@
         chart.render();
         
         }
-        </script>
-  </head>
-  <body>
-    <div class="wrapper">
+        </script> -->
       <header class="header">
         <h1>FBI Most Wanted</h1>
       </header>
@@ -68,22 +68,20 @@
         <div class="left_section box">
           <h3>Most Wanted List</h3>
           <div class="submit_form">
-            <form
-              action="https://api.fbi.gov/wanted/v1/list"
-              class="box main_form"
-            >
-              <button type="submit" id="data_load">Load Data</button>
-              <button type="button" class="filter_button">Filter Data</button>
-            </form>
+            <button type="submit" id="data_load">Load Data</button>
+            <button type="button" id="generate">Gen List</button>
           </div>
         </div>
         <div class="right_section box">
-            <h3>Data Visualization</h3>
+          <h3>Data Visualization</h3>
+          <div class="box">
+            <dl class="people_list"></dl>
           </div>
+        </div>
       </div>
     </div>
     <script src="./proj.js"></script>
-    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!-- <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
   </body>
 </html>

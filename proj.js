@@ -1,45 +1,44 @@
+function injectHTML(list) {
+    const target = document.querySelector('.people_list');
+    target.innerHTML = '';
+    const arr = Array.from(list);
+    arr.forEach(item => {
+        const str = `<table>${item.description}</table>`;
+        target.innerHTML += str})
+    console.log('fired injectHTML')
+    console.log(arr)
 
-function weightArray(array) {
-    array.forEach((item) => {
-        console.log('weight', item);
-        const {weightt} = item.weight;
-        
-    })
 }
-
-async function mainEvent() { // the async keyword means we can make API requests
+  
+async function mainEvent() { 
     const mainForm = document.querySelector('.main_form');
-    const filterButton = document.querySelector('.filter_button');
-   
+    const loadDataButton = document.querySelector('#data_load');
+    const generateListButton = document.querySelector('#generate');
   
-    let currentList = []; 
+    let currentList = []; // this is "scoped" to the main event function
     
-    mainForm.addEventListener('submit', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
+    loadDataButton.addEventListener('click', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
       
-      submitEvent.preventDefault(); 
-      
-      console.log('form submission'); 
-  
-      const results = await fetch('https://api.fbi.gov/wanted/v1/list');
-  
-      currentList = await results.json();
+        console.log('load data'); 
 
-      console.table(currentList); 
+        let results = await fetch('https://api.fbi.gov/wanted/v1/list');
+  
+      // This changes the response from the GET into data we can use - an "object"
+        currentList = await results.json();
+
+        storedData = JSON.stringify(currentList);
+        parsedData = JSON.parse(storedData);
+
+        console.log('PD', parsedData)
+      
     });
-  
-    filterButton.addEventListener('click', (event) => {
-        console.log('clicked filterButton');
-  
-        const formData = new FormData(mainForm);
-        const formProps = Object.fromEntries(formData);
-  
-        console.log(formProps);
-        const newList = filterList(currentList, formProps.resto);
-  
-        console.log(newList);
+
+    generateListButton.addEventListener('click', (event) => {
+        console.log('generate list');
+        data = parsedData.items[0];
+        console.log(data);
+        injectHTML(data);
     })
-  
-  }
-  
- 
-  document.addEventListener('DOMContentLoaded', async () => mainEvent());
+
+}
+document.addEventListener('DOMContentLoaded', async () => mainEvent());
