@@ -35,7 +35,7 @@ async function mainEvent() {
 
     generateListButton.addEventListener('click', (event) => {
         console.log('generate list');
-        data = parsedData.items[0];
+        data = parsedData.items[1];
         console.log(data);
         injectHTML(data);
     })
